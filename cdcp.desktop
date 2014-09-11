@@ -1,8 +1,0 @@
-Version=1.0
-Name=cdcp
-Type=Application
-GenericName=cdcp
-Exec="cdcp/run.sh"
-Terminal=true
-Categories=Utilities;
-Icon=cdcp/cdcp.png
