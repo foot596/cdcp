@@ -6,7 +6,7 @@ cd $DIR
 LOG_DIR="log"
 LOG_FILE_CORE="$LOG_DIR/cdcp_core.log"
 
-git pull >> $LOG_FILE_CORE
+git pull | tee -a $LOG_FILE_CORE
 echo "[$(date +"%d-%m-%Y %H:%M:%S")] git error code: $?" | tee -a $LOG_FILE_CORE
 if [ $? -ne 0 ]; then
   echo "[$(date +"%d-%m-%Y %H:%M:%S")] Script updated. Restarting" | tee -a $LOG_FILE_CORE
