@@ -1,5 +1,8 @@
 #!/bin/sh
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $DIR
+
 LOG_DIR="log"
 LOG_FILE_CORE="$LOG_DIR/cdcp_core.log"
 
