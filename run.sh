@@ -6,9 +6,10 @@ cd $DIR
 LOG_DIR="log"
 LOG_FILE_CORE="$LOG_DIR/cdcp_core.log"
 
-git pull | tee -a $LOG_FILE_CORE
-echo "[$(date +"%d-%m-%Y %H:%M:%S")] git error code: $?" | tee -a $LOG_FILE_CORE
-if [ $? -ne 0 ]; then
+OLD_HEAD=$(git rev-parse HEAD)
+git pull origin master | tee -a $LOG_FILE_CORE
+NEW_HEAD=$(git rev-parse HEAD)
+if [ $OLD_HEAD != $NEW_HEAD ]; then
   echo "[$(date +"%d-%m-%Y %H:%M:%S")] Script updated. Restarting" | tee -a $LOG_FILE_CORE
   exec ./run.sh
 fi
